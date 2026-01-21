@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
@@ -16,274 +16,141 @@
   <!-- Base CSS -->
   <link rel="stylesheet" href="../assets/css/base.css">
 
-  <!-- Estilos locales de categoría (NO TOCAR base.css) -->
+  <!-- Estilos locales -->
   <style>
-    .article-link{
-      display:block;
-      color:inherit;
-      text-decoration:none;
-    }
+    .article-link{display:block;color:inherit;text-decoration:none}
+    .article-card-header{display:flex;justify-content:space-between;gap:1rem}
+    .score-badge{font-family:var(--font-mono);font-size:.85rem;font-weight:600;color:var(--accent);border:1px solid var(--accent);padding:.25rem .5rem;border-radius:4px;white-space:nowrap}
 
-    .article-card-header{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:1rem;
-    }
+    .filters{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:.75rem}
+    .filters label{display:flex;flex-direction:column;gap:.35rem;font-family:var(--font-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase}
+    .filters select{background:#0f0f0f;color:#fff;border:1px solid #2a2a2a;padding:.45rem .6rem;border-radius:4px;font-size:.85rem}
+    .filters select:focus{outline:none;border-color:var(--accent)}
 
-    .score-badge{
-      font-family:var(--font-mono);
-      font-size:.85rem;
-      font-weight:600;
-      color:var(--accent);
-      border:1px solid var(--accent);
-      padding:.25rem .5rem;
-      border-radius:4px;
-      white-space:nowrap;
-    }
+    .filters-note{font-size:.75rem;color:var(--muted);max-width:720px}
 
-    /* Filtros */
-    .filters{
-      display:flex;
-      gap:1.5rem;
-      flex-wrap:wrap;
-      margin-bottom:.75rem;
-    }
+    .recommended-tag{display:inline-block;font-size:.65rem;font-family:var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:#000;background:var(--accent);padding:.15rem .35rem;border-radius:3px;margin-bottom:.35rem}
 
-    .filters label{
-      display:flex;
-      flex-direction:column;
-      gap:.35rem;
-      font-family:var(--font-mono);
-      font-size:.75rem;
-      letter-spacing:.08em;
-      text-transform:uppercase;
-    }
-
-    .filters select{
-      background:#0f0f0f;
-      color:#fff;
-      border:1px solid #2a2a2a;
-      padding:.45rem .6rem;
-      border-radius:4px;
-      font-family:'Inter', sans-serif;
-      font-size:.85rem;
-    }
-
-    .filters select:focus{
-      outline:none;
-      border-color:var(--accent);
-    }
-
-    .filters-note{
-      font-size:.75rem;
-      color:var(--muted);
-      max-width:720px;
-      line-height:1.4;
-    }
-
-    /* Estados editoriales */
-    .recommended-tag{
-      display:inline-block;
-      font-size:.65rem;
-      font-family:var(--font-mono);
-      letter-spacing:.08em;
-      text-transform:uppercase;
-      color:#000;
-      background:var(--accent);
-      padding:.15rem .35rem;
-      border-radius:3px;
-      margin-bottom:.35rem;
-    }
-
-    .no-results{
-      display:none;
-      font-size:.9rem;
-      color:var(--muted);
-      margin-top:1.5rem;
-    }
+    .no-results{display:none;font-size:.9rem;color:var(--muted);margin-top:1.5rem}
   </style>
 </head>
 
 <body>
 
-<!-- HEADER GLOBAL -->
-<header style="border-bottom:1px solid #1f1f1f; margin-bottom:3rem;">
-  <div style="max-width:1100px; margin:auto; padding:1.5rem 1.25rem; display:flex; justify-content:space-between; align-items:center;">
-    <a href="../categorias/index.html" style="text-decoration:none;">
-      <span style="font-weight:700; letter-spacing:-0.03em;">Fisio</span>
-      <span style="font-weight:700; letter-spacing:-0.03em; color:#FCBF06;">Lógico</span>
+<header style="border-bottom:1px solid #1f1f1f;margin-bottom:3rem">
+  <div style="max-width:1100px;margin:auto;padding:1.5rem 1.25rem;display:flex;justify-content:space-between">
+    <a href="../categorias/index.html" style="text-decoration:none">
+      <strong>Fisio</strong><strong style="color:#FCBF06">Lógico</strong>
     </a>
-
-    <span class="mono muted" style="font-size:.75rem; letter-spacing:.12em; text-transform:uppercase;">
-      Categoría
-    </span>
+    <span class="mono muted" style="font-size:.75rem;letter-spacing:.12em;text-transform:uppercase">Categoría</span>
   </div>
 </header>
 
-<main style="max-width:1100px; margin:auto; padding:0 1.25rem;">
+<main style="max-width:1100px;margin:auto;padding:0 1.25rem">
 
-  <!-- Navegación -->
-  <nav style="margin-bottom:2.5rem;">
-    <a href="../categorias/index.html" class="mono muted">← Volver al repositorio</a>
-  </nav>
+<nav style="margin-bottom:2.5rem">
+  <a href="../categorias/index.html" class="mono muted">← Volver al repositorio</a>
+</nav>
 
-  <!-- Header editorial -->
-  <header style="margin-bottom:3rem;">
-    <h1>NOMBRE DE LA CATEGORÍA</h1>
-    <p class="muted" style="max-width:720px; font-size:1.1rem;">
-      Descripción editorial y clínica de la categoría.
-    </p>
-    <p class="muted" style="font-size:.85rem; margin-top:.75rem;">
-      Estado de la evidencia: categoría en desarrollo (n = X artículos).
-    </p>
-  </header>
+<header style="margin-bottom:3rem">
+  <h1>NOMBRE DE LA CATEGORÍA</h1>
+  <p class="muted" style="max-width:720px;font-size:1.1rem">Descripción editorial y clínica de la categoría.</p>
+  <p class="muted" id="categoryStatus" style="font-size:.85rem;margin-top:.75rem"></p>
+</header>
 
-  <!-- FILTROS -->
-  <section class="card">
-    <h2>Filtrar artículos</h2>
+<section class="card">
+  <h2>Filtrar artículos</h2>
 
-    <div class="filters">
-      <label>
-        Año
-        <select id="yearFilter">
-          <option value="all">Todos</option>
-        </select>
-      </label>
+  <div class="filters">
+    <label>Año
+      <select id="yearFilter"><option value="all">Todos</option></select>
+    </label>
+    <label>Score mínimo
+      <select id="scoreFilter">
+        <option value="20" selected>≥ 20 / 30</option>
+        <option value="15">≥ 15 / 30</option>
+        <option value="all">Todos</option>
+      </select>
+    </label>
+    <label>Nivel
+      <select id="tierFilter">
+        <option value="all">Todos</option>
+        <option value="solida">Sólida</option>
+        <option value="moderada">Moderada</option>
+        <option value="exploratoria">Exploratoria</option>
+      </select>
+    </label>
+  </div>
 
-      <label>
-        Score mínimo
-        <select id="scoreFilter">
-          <option value="20" selected>≥ 20 / 30 (recomendado)</option>
-          <option value="15">≥ 15 / 30</option>
-          <option value="all">Todos</option>
-        </select>
-      </label>
+  <p class="filters-note">
+    El score refleja calidad metodológica y transferencia clínica, no popularidad.
+  </p>
+</section>
 
-      <label>
-        Nivel de evidencia
-        <select id="tierFilter">
-          <option value="all">Todos</option>
-          <option value="solida">Sólida</option>
-          <option value="moderada">Moderada</option>
-          <option value="exploratoria">Exploratoria</option>
-        </select>
-      </label>
-    </div>
+<section class="card">
+  <h2>Artículos recomendados</h2>
+  <div id="recommendedList"></div>
+</section>
 
-    <p class="filters-note">
-      El score metodológico refleja calidad de diseño y transferencia clínica, no relevancia comercial.
-    </p>
-  </section>
-
-  <!-- ARTÍCULOS -->
-  <section class="card" id="articles">
-    <h2>Artículos disponibles</h2>
-
-    <div id="articlesList">
-
-      <!-- MODELO CANÓNICO DE TARJETA -->
-      <!--
-      <article class="article-card"
-        data-year="2026"
-        data-score="22"
-        data-tier="moderada"
-        data-recommended="true"
-        data-category="bfr">
-
-        <a class="article-link" href="../articulos/bfr/nombre-del-articulo-2026.html">
-
-          <span class="recommended-tag">Recomendado</span>
-
-          <div class="article-card-header">
-            <h3>Título completo del artículo</h3>
-            <span class="score-badge">22 / 30</span>
-          </div>
-
-          <p>Descripción clínica breve, honesta y metodológica.</p>
-        </a>
-      </article>
-      -->
-
-    </div>
-
-    <p class="no-results" id="noResults">
-      No hay artículos que cumplan los criterios actuales.  
-      Prueba a reducir el score mínimo o cambiar los filtros.
-    </p>
-  </section>
+<section class="card">
+  <h2>Artículos disponibles</h2>
+  <div id="articlesList"></div>
+  <p class="no-results" id="noResults">
+    No hay artículos que cumplan los filtros actuales.
+  </p>
+</section>
 
 </main>
 
-<footer style="margin-top:4rem; border-top:1px solid #1f1f1f;">
-  <div style="max-width:1100px; margin:auto; padding:2rem 1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
-    <div>
-      <span style="font-weight:600;">Fisio</span>
-      <span style="font-weight:600; color:#FCBF06;">Lógico</span>
-    </div>
-
-    <p class="muted" style="font-size:.75rem;">
-      © El FisioLógico · Categoría
-    </p>
+<footer style="margin-top:4rem;border-top:1px solid #1f1f1f">
+  <div style="max-width:1100px;margin:auto;padding:2rem 1.25rem;display:flex;justify-content:space-between">
+    <strong>Fisio<span style="color:#FCBF06">Lógico</span></strong>
+    <p class="muted" style="font-size:.75rem">© El FisioLógico · Categoría</p>
   </div>
 </footer>
 
 <script>
-(function () {
+(function(){
+  const cards=[...document.querySelectorAll('.article-card')]
+  if(!cards.length)return
 
-  const cards = Array.from(document.querySelectorAll('.article-card'));
-  if (!cards.length) return;
+  const list=document.getElementById('articlesList')
+  const rec=document.getElementById('recommendedList')
+  const year=document.getElementById('yearFilter')
+  const score=document.getElementById('scoreFilter')
+  const tier=document.getElementById('tierFilter')
+  const noResults=document.getElementById('noResults')
+  const status=document.getElementById('categoryStatus')
 
-  const container = document.getElementById('articlesList');
-  const yearFilter = document.getElementById('yearFilter');
-  const scoreFilter = document.getElementById('scoreFilter');
-  const tierFilter = document.getElementById('tierFilter');
-  const noResults = document.getElementById('noResults');
+  cards.sort((a,b)=>b.dataset.score-a.dataset.score)
 
-  /* Orden por score */
-  cards
-    .sort((a, b) => parseInt(b.dataset.score, 10) - parseInt(a.dataset.score, 10))
-    .forEach(card => container.appendChild(card));
+  const years=[...new Set(cards.map(c=>c.dataset.year))].sort((a,b)=>b-a)
+  years.forEach(y=>year.add(new Option(y,y)))
 
-  /* Poblar años */
-  const years = [...new Set(cards.map(c => c.dataset.year))].sort((a,b) => b-a);
-  years.forEach(y => {
-    const opt = document.createElement('option');
-    opt.value = y;
-    opt.textContent = y;
-    yearFilter.appendChild(opt);
-  });
+  function apply(){
+    let visible=0
+    list.innerHTML=''
+    rec.innerHTML=''
 
-  function applyFilters(){
-    const year = yearFilter.value;
-    const score = scoreFilter.value;
-    const tier = tierFilter.value;
-    let visibleCount = 0;
+    cards.forEach(c=>{
+      const ok=
+        (year.value==='all'||c.dataset.year===year.value)&&
+        (score.value==='all'||+c.dataset.score>=+score.value)&&
+        (tier.value==='all'||c.dataset.tier===tier.value)
 
-    cards.forEach(card => {
-      const cYear = card.dataset.year;
-      const cScore = parseInt(card.dataset.score, 10);
-      const cTier = card.dataset.tier;
+      if(ok){
+        visible++
+        if(c.dataset.recommended==='true')rec.appendChild(c)
+        else list.appendChild(c)
+      }
+    })
 
-      let visible = true;
-
-      if (year !== 'all' && cYear !== year) visible = false;
-      if (score !== 'all' && cScore < parseInt(score, 10)) visible = false;
-      if (tier !== 'all' && cTier !== tier) visible = false;
-
-      card.style.display = visible ? 'block' : 'none';
-      if (visible) visibleCount++;
-    });
-
-    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    noResults.style.display=visible? 'none':'block'
+    status.textContent=`Estado de la evidencia: ${visible<5?'categoría en desarrollo':'categoría consolidada'} (n = ${visible} artículos).`
   }
 
-  yearFilter.addEventListener('change', applyFilters);
-  scoreFilter.addEventListener('change', applyFilters);
-  tierFilter.addEventListener('change', applyFilters);
-
-  applyFilters();
-
+  year.onchange=score.onchange=tier.onchange=apply
+  apply()
 })();
 </script>
 
