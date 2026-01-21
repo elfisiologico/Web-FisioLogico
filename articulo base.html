@@ -8,10 +8,10 @@
   <meta name="description" content="Análisis crítico del estudio sobre TEMA PRINCIPAL aplicado a la fisioterapia clínica." />
   <meta name="author" content="El FisioLógico" />
 
-  <!-- Metadatos editoriales (OBLIGATORIOS · fuente de verdad) -->
+  <!-- METADATOS EDITORIALES (OBLIGATORIOS · FUENTE DE VERDAD) -->
   <meta name="article:year" content="YYYY">
   <meta name="article:score" content="NN">
-  <meta name="article:category" content="CATEGORIA_SLUG">
+  <meta name="article:category" content="categoria_slug">
   <meta name="article:tier" content="solida|moderada|exploratoria">
   <meta name="article:design" content="RCT|observacional|RS|experimental|otro">
 
@@ -23,334 +23,132 @@
   <!-- Base CSS -->
   <link rel="stylesheet" href="../../assets/css/base.css">
 
-  <!-- =========================================================
-       LOCAL ONLY (NO TOCAR base.css)
-       - Quiz: estado seguro + estética coherente
-       ========================================================= -->
+  <!-- LOCAL ONLY (NO TOCAR base.css) -->
   <style>
-    /* Quiz: feedback oculto por defecto */
-    .quiz-wrap .fb-box{ display:none; }
-    .quiz-wrap .q.is-done .fb-box.show{ display:block; }
+    .quiz-wrap .fb-box{display:none}
+    .quiz-wrap .q.is-done .fb-box.show{display:block}
 
-    /* Quiz: botones (dark premium, sin librerías) */
-    .quiz-wrap .opts{
-      display:flex;
-      flex-direction:column;
-      gap:.6rem;
-      margin:.75rem 0 1rem;
-    }
+    .quiz-wrap .opts{display:flex;flex-direction:column;gap:.6rem;margin:.75rem 0 1rem}
     .quiz-wrap .opts button{
-      text-align:left;
-      background:#111;
-      color:#fff;
-      border:1px solid #2a2a2a;
-      padding:.75rem .8rem;
-      border-radius:8px;
-      cursor:pointer;
-      font-family:inherit;
-      line-height:1.35;
-      transition: border-color .15s ease, transform .05s ease;
+      text-align:left;background:#111;color:#fff;border:1px solid #2a2a2a;
+      padding:.75rem .8rem;border-radius:8px;cursor:pointer;
+      transition:border-color .15s ease,transform .05s ease
     }
-    .quiz-wrap .opts button:hover{
-      border-color: var(--accent);
-    }
-    .quiz-wrap .opts button:active{
-      transform: translateY(1px);
-    }
-    .quiz-wrap .q.is-done .opts button{
-      cursor:not-allowed;
-      opacity:.75;
-    }
+    .quiz-wrap .opts button:hover{border-color:var(--accent)}
+    .quiz-wrap .opts button:active{transform:translateY(1px)}
+    .quiz-wrap .q.is-done .opts button{cursor:not-allowed;opacity:.75}
 
-    /* Quiz: cajas de feedback */
-    .quiz-wrap .fb{
-      margin-top:.5rem;
-    }
     .quiz-wrap .fb-box{
-      border:1px solid #2a2a2a;
-      border-left:4px solid var(--accent);
-      background:#0f0f0f;
-      border-radius:10px;
-      padding:.85rem .9rem;
-    }
-    .quiz-wrap .fb-box p{
-      margin:.25rem 0;
+      border:1px solid #2a2a2a;border-left:4px solid var(--accent);
+      background:#0f0f0f;border-radius:10px;padding:.85rem .9rem
     }
 
-    /* Bloque score global (fallback si base.css no lo define) */
     .score-global{
-      display:grid;
-      grid-template-columns:120px 1fr;
-      gap:1.25rem;
-      align-items:stretch;
-      margin:1.25rem 0 2rem;
+      display:grid;grid-template-columns:120px 1fr;gap:1.25rem;
+      margin:1.25rem 0 2rem
     }
     .score-box{
-      border:1px solid #2a2a2a;
-      border-radius:12px;
-      background:#0f0f0f;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      padding:1.1rem .75rem;
+      border:1px solid #2a2a2a;border-radius:12px;background:#0f0f0f;
+      display:flex;flex-direction:column;align-items:center;justify-content:center
     }
     .score-number{
-      font-family:var(--font-mono);
-      font-size:2.2rem;
-      font-weight:700;
-      color:var(--accent);
-      line-height:1;
+      font-family:var(--font-mono);font-size:2.2rem;
+      font-weight:700;color:var(--accent)
     }
-    .score-total{
-      font-family:var(--font-mono);
-      font-size:.95rem;
-      color:var(--muted);
-      margin-top:.25rem;
-    }
-    .score-text{
-      border:1px solid #2a2a2a;
-      border-radius:12px;
-      background:#0f0f0f;
-      padding:1.1rem 1.1rem;
-    }
-    .score-text h2{
-      margin-top:0;
-    }
+    .score-total{font-family:var(--font-mono);font-size:.95rem;color:var(--muted)}
 
-    @media (max-width:720px){
-      .score-global{ grid-template-columns:1fr; }
-      .score-box{ align-items:flex-start; }
+    @media(max-width:720px){
+      .score-global{grid-template-columns:1fr}
     }
   </style>
 </head>
 
 <body>
 
-<!-- BACK NAV (OBLIGATORIO · SIEMPRE A SU CATEGORÍA) -->
+<!-- BACK NAV (OBLIGATORIO · A SU CATEGORÍA POR SLUG) -->
 <div class="back-nav">
-  <a href="../../categorias/CATEGORIA_SLUG.html">← Volver a la categoría</a>
+  <a href="../../categorias/categoria_slug.html">← Volver a la categoría</a>
 </div>
 
 <main class="container">
 
-  <!-- 1) HEADER DEL ARTÍCULO -->
-  <header class="article-header">
-    <h1>TÍTULO COMPLETO DEL ESTUDIO</h1>
-    <p class="article-meta">
-      Autor/es <span class="sep">·</span> YYYY <span class="sep">·</span> Revista <span class="sep">·</span> Diseño (p.ej., RCT)
+<header class="article-header">
+  <h1>TÍTULO COMPLETO DEL ESTUDIO</h1>
+  <p class="article-meta">
+    Autor/es · YYYY · Revista · Diseño (p. ej., RCT)
+  </p>
+</header>
+
+<!-- VALORACIÓN METODOLÓGICA GLOBAL -->
+<section class="score-global">
+  <div class="score-box">
+    <span class="score-number">NN</span>
+    <span class="score-total">/ 30</span>
+  </div>
+  <div class="score-text">
+    <h2>Valoración metodológica global</h2>
+    <p class="muted">
+      Explicación crítica del porqué de la puntuación, enfatizando sesgos reales,
+      validez de variables y transferencia clínica. Sin lenguaje promocional.
     </p>
-  </header>
+  </div>
+</section>
 
-  <!-- 2) VALORACIÓN METODOLÓGICA GLOBAL (/30) -->
-  <section class="score-global" aria-label="Valoración metodológica global">
-    <div class="score-box">
-      <span class="score-number">NN</span>
-      <span class="score-total">/ 30</span>
-    </div>
+<!-- JUSTIFICACIÓN METODOLÓGICA -->
+<section class="card">
+  <h2>Justificación metodológica</h2>
+  <table class="methodology-table">
+    <thead>
+      <tr><th>Dimensión</th><th>Score</th><th>Justificación crítica</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Diseño</td><td>X</td><td>Crítica del diseño y comparador.</td></tr>
+      <tr><td>Muestra</td><td>X</td><td>Tamaño, criterios, representatividad.</td></tr>
+      <tr><td>Control de sesgos</td><td>X</td><td>Aleatorización, cegamiento, análisis.</td></tr>
+      <tr><td>Variables</td><td>X</td><td>Outcomes clínicos vs surrogate.</td></tr>
+      <tr><td>Transferencia clínica</td><td>X</td><td>Aplicabilidad real y límites.</td></tr>
+      <tr><td>Coherencia</td><td>X</td><td>Coherencia interna y con la literatura.</td></tr>
+    </tbody>
+  </table>
+</section>
 
-    <div class="score-text">
-      <h2>Valoración metodológica global</h2>
-      <p class="muted">
-        Explicación crítica breve del porqué de la nota (enfocar sesgos reales, calidad de variables y transferencia clínica).
-        Evitar lenguaje promocional. Si hay outcomes surrogate (p.ej., EMG), explicitar límites de inferencia.
-      </p>
-    </div>
-  </section>
+<!-- FICHA TÉCNICA -->
+<section class="card">
+  <h2>Ficha técnica</h2>
+  <ul>
+    <li><strong>Población:</strong> descripción exacta.</li>
+    <li><strong>Intervención:</strong> dosis, duración, comparadores.</li>
+    <li><strong>Resultados clave:</strong> solo clínicamente interpretables.</li>
+  </ul>
+</section>
 
-  <!-- 3) JUSTIFICACIÓN METODOLÓGICA (TABLA 6D) -->
-  <section class="card">
-    <h2>Justificación metodológica</h2>
+<!-- ANÁLISIS CRÍTICO -->
+<section class="card">
+  <h2>Análisis crítico</h2>
+  <p>Análisis en prosa de calidad metodológica, sesgos y validez.</p>
+  <div class="highlight">
+    <strong>El estudio aporta evidencia…</strong> con límites claros.
+  </div>
+</section>
 
-    <div class="table-wrap">
-      <table class="methodology-table">
-        <thead>
-          <tr>
-            <th>Dimensión</th>
-            <th>Score (0–5)</th>
-            <th>Evidencia / Justificación crítica</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Diseño</td>
-            <td>X</td>
-            <td>Crítica: adecuación del diseño a la pregunta, comparador, duración, control real. Si falta: “No informado en el artículo.”</td>
-          </tr>
-          <tr>
-            <td>Muestra</td>
-            <td>X</td>
-            <td>Crítica: tamaño, poder estadístico si existe, criterios, representatividad, pérdidas. Si falta: “No informado en el artículo.”</td>
-          </tr>
-          <tr>
-            <td>Control de sesgos</td>
-            <td>X</td>
-            <td>Crítica: aleatorización, ocultación, cegamiento, adherencia, cointervenciones, análisis. Si falta: “No informado en el artículo.”</td>
-          </tr>
-          <tr>
-            <td>Variables</td>
-            <td>X</td>
-            <td>Crítica: validez de medidas, outcomes clínicos vs surrogate; advertir: EMG ≠ fuerza/función; significación ≠ relevancia.</td>
-          </tr>
-          <tr>
-            <td>Transferencia clínica</td>
-            <td>X</td>
-            <td>Crítica: aplicabilidad real (población, setting, dosis, seguridad); penalizar si outcomes son surrogate y no hay función/dolor.</td>
-          </tr>
-          <tr>
-            <td>Coherencia</td>
-            <td>X</td>
-            <td>Crítica: coherencia interna + con literatura; si estudio es antiguo, valorar vigencia del marco teórico y penalizar si está superado.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
+<!-- APLICABILIDAD CLÍNICA -->
+<section class="card">
+  <h2>Aplicabilidad clínica</h2>
+  <ul>
+    <li><strong>Electrólisis percutánea:</strong> No evaluada; no inferible.</li>
+    <li><strong>Neuromodulación cerebral (tDCS / TMS):</strong> No evaluada; no inferible.</li>
+    <li><strong>Punción seca:</strong> No evaluada; no inferible.</li>
+    <li><strong>Ejercicio terapéutico / BFR:</strong> Aplicabilidad según outcomes.</li>
+  </ul>
+</section>
 
-  <!-- 4) FICHA TÉCNICA -->
-  <section class="card">
-    <h2>Ficha técnica</h2>
-
-    <ul>
-      <li><strong>Población:</strong> descripción exacta según el artículo.</li>
-      <li><strong>Intervención:</strong> protocolo, dosis, progresión y comparadores.</li>
-      <li><strong>Resultados clave:</strong>
-        <ul>
-          <li>Resultado clínicamente relevante 1 (con prudencia).</li>
-          <li>Resultado clínicamente relevante 2 (con prudencia).</li>
-          <li>Si solo hay surrogate (p.ej., EMG/grosor): explicitar que NO equivale a función clínica.</li>
-        </ul>
-      </li>
-    </ul>
-  </section>
-
-  <!-- 5) ANÁLISIS CRÍTICO -->
-  <section class="card">
-    <h2>Análisis crítico</h2>
-
-    <p>
-      Prosa larga: calidad del diseño, sesgos reales, validez interna vs externa, lectura prudente de variables y tamaño del efecto.
-      Si hay EMG/activación/biomarcadores: remarcar explícitamente límites (no confundir con fuerza/función).
-    </p>
-
-    <p>
-      Coherencia con evidencia actual: si el estudio es antiguo o usa marcos obsoletos, indicarlo sin rodeos.
-      Diferenciar “significativo” de “clínicamente relevante” y evitar causalidad indebida.
-    </p>
-
-    <div class="highlight">
-      <strong>El estudio aporta evidencia…</strong> (párrafo destacado final, prudente, con límites y aplicabilidad real).
-    </div>
-  </section>
-
-  <!-- 6) APLICABILIDAD CLÍNICA (4 técnicas obligatorias) -->
-  <section class="card">
-    <h2>Aplicabilidad clínica</h2>
-
-    <ul>
-      <li><strong>Electrólisis percutánea:</strong> Si no se evalúa → “No evaluada; no inferible directamente.”</li>
-      <li><strong>Neuromodulación:</strong> Si no se evalúa → “No evaluada; no inferible directamente.” (distinguir central vs periférica).</li>
-      <li><strong>Punción seca:</strong> Si no se evalúa → “No evaluada; no inferible directamente.”</li>
-      <li><strong>Ejercicio terapéutico / BFR:</strong> Aplicabilidad real según outcomes (función/dolor > surrogate). Si no aplica → declararlo.</li>
-    </ul>
-  </section>
-
-  <!-- 7) QUIZ FORMATIVO (EXACTAMENTE 4) -->
-  <section class="card">
-    <h2>Quiz formativo</h2>
-
-    <div class="quiz-wrap">
-
-      <!-- P1 -->
-      <div class="q">
-        <p class="q-title"><strong>1. Pregunta (centrada en diseño / sesgos)</strong></p>
-        <div class="opts">
-          <button data-correct="false">Opción incorrecta</button>
-          <button data-correct="true">Opción correcta</button>
-          <button data-correct="false">Opción incorrecta</button>
-        </div>
-        <div class="fb">
-          <div class="fb-box ok">
-            <p><strong>Correcto.</strong></p>
-            <p><strong>Justificación metodológica:</strong> Explica qué elemento del diseño/validez interna respalda la respuesta.</p>
-            <p><strong>Traducción clínica:</strong> Qué puedes concluir (y qué no) para la práctica clínica.</p>
-          </div>
-          <div class="fb-box ko">
-            <p><strong>Incorrecto.</strong></p>
-            <p><strong>Justificación metodológica:</strong> Señala el error típico (confundir asociación con causalidad, falta de control, etc.).</p>
-            <p><strong>Traducción clínica:</strong> Qué riesgo clínico implica esa mala inferencia.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- P2 -->
-      <div class="q">
-        <p class="q-title"><strong>2. Pregunta (centrada en variables / surrogate)</strong></p>
-        <div class="opts">
-          <button data-correct="false">Opción incorrecta</button>
-          <button data-correct="false">Opción incorrecta</button>
-          <button data-correct="true">Opción correcta</button>
-        </div>
-        <div class="fb">
-          <div class="fb-box ok">
-            <p><strong>Correcto.</strong></p>
-            <p><strong>Justificación metodológica:</strong> Aclara por qué esa variable sí/no permite inferencias clínicas (EMG ≠ función).</p>
-            <p><strong>Traducción clínica:</strong> Cómo lo usarías para decidir tratamiento o monitorizar progreso.</p>
-          </div>
-          <div class="fb-box ko">
-            <p><strong>Incorrecto.</strong></p>
-            <p><strong>Justificación metodológica:</strong> Penaliza didácticamente el error (extrapolar surrogate a outcome clínico).</p>
-            <p><strong>Traducción clínica:</strong> Qué decisión errónea te llevaría a tomar.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- P3 -->
-      <div class="q">
-        <p class="q-title"><strong>3. Pregunta (centrada en transferencia clínica)</strong></p>
-        <div class="opts">
-          <button data-correct="true">Opción correcta</button>
-          <button data-correct="false">Opción incorrecta</button>
-          <button data-correct="false">Opción incorrecta</button>
-        </div>
-        <div class="fb">
-          <div class="fb-box ok">
-            <p><strong>Correcto.</strong></p>
-            <p><strong>Justificación metodológica:</strong> Conecta población/dosis/outcomes con validez externa.</p>
-            <p><strong>Traducción clínica:</strong> En qué pacientes lo aplicarías (y en cuáles no).</p>
-          </div>
-          <div class="fb-box ko">
-            <p><strong>Incorrecto.</strong></p>
-            <p><strong>Justificación metodológica:</strong> Explica por qué la generalización es débil (muestra, contexto, comparador).</p>
-            <p><strong>Traducción clínica:</strong> Cómo evitar aplicar algo “porque suena bien”.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- P4 -->
-      <div class="q">
-        <p class="q-title"><strong>4. Pregunta (centrada en coherencia / temporalidad)</strong></p>
-        <div class="opts">
-          <button data-correct="false">Opción incorrecta</button>
-          <button data-correct="true">Opción correcta</button>
-          <button data-correct="false">Opción incorrecta</button>
-        </div>
-        <div class="fb">
-          <div class="fb-box ok">
-            <p><strong>Correcto.</strong></p>
-            <p><strong>Justificación metodológica:</strong> Relaciona hallazgos con literatura y vigencia del marco teórico.</p>
-            <p><strong>Traducción clínica:</strong> Cómo mantener práctica actualizada sin “tirar” evidencia útil.</p>
-          </div>
-          <div class="fb-box ko">
-            <p><strong>Incorrecto.</strong></p>
-            <p><strong>Justificación metodológica:</strong> Señala el error de tratar un estudio aislado como verdad definitiva.</p>
-            <p><strong>Traducción clínica:</strong> Qué conducta clínica evita ese sesgo.</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
+<!-- QUIZ FORMATIVO -->
+<section class="card">
+  <h2>Quiz formativo</h2>
+  <div class="quiz-wrap">
+    <!-- EXACTAMENTE 4 preguntas -->
+  </div>
+</section>
 
 </main>
 
@@ -358,33 +156,18 @@
   © El FisioLógico · Repositorio científico en fisioterapia
 </footer>
 
-<!-- =====================================================
-     QUIZ SCRIPT · DEFINITIVO Y SEGURO
-     ===================================================== -->
 <script>
-(function () {
-  const questions = document.querySelectorAll(".quiz-wrap .q");
-  if (!questions.length) return;
-
-  questions.forEach(q => {
-    const buttons = q.querySelectorAll(".opts button");
-    const ok = q.querySelector(".fb-box.ok");
-    const ko = q.querySelector(".fb-box.ko");
-
-    buttons.forEach(btn => {
-      btn.addEventListener("click", () => {
-        if (q.classList.contains("is-done")) return;
-
+(function(){
+  document.querySelectorAll(".quiz-wrap .q").forEach(q=>{
+    q.querySelectorAll("button").forEach(btn=>{
+      btn.onclick=()=>{
+        if(q.classList.contains("is-done"))return;
         q.classList.add("is-done");
-
-        if (btn.dataset.correct === "true") {
-          ok.classList.add("show");
-        } else {
-          ko.classList.add("show");
-        }
-      });
-    });
-  });
+        q.querySelector(btn.dataset.correct==="true"?".fb-box.ok":".fb-box.ko")
+          .classList.add("show");
+      }
+    })
+  })
 })();
 </script>
 
